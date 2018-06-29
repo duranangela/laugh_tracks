@@ -1,0 +1,13 @@
+<h1 id="greeting">Welcome to Comedians!</h1>
+
+<% @comedians.each do |comedian| %>
+<ul>
+  <li><%= comedian.name %></li>
+  <li><%= comedian.age %></li>
+</ul>
+  <% @specials.each do |special| %>
+    <% if special.comedian_id == comedian.id %>
+      <p><%= special.name %></p>
+    <% end %>
+  <% end %>
+<% end %>
