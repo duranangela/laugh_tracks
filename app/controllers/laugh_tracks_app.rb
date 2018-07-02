@@ -6,4 +6,5 @@ class LaughTracksApp < Sinatra::Base
     @average_age = Comedian.average_age
     erb :'comedians'
   end
+
 end
