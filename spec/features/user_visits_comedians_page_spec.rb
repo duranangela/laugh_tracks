@@ -28,4 +28,24 @@ RSpec.describe 'a visitor visits comedians page' do
 
     expect(page).to have_content(26)
   end
+  it 'finds a comedian by age query' do
+    Comedian.create(name: 'Bob', age: 34)
+    Comedian.create(name: 'Mary', age: 25)
+
+    visit '/comedians?age=34'
+
+    expect(page).to have_content('Bob')
+  end
+  it 'shows a count of specials per comedian' do
+    bob = Comedian.create(name: 'Bob', age: 27)
+    mary = Comedian.create(name: 'Mary', age: 25)
+    bob.specials.create(name: 'Special1')
+    bob.specials.create(name: 'Special2')
+    mary.specials.create(name: 'Special3')
+
+    visit 'comedians'
+
+    expect(page).to have_content(2)
+    expect(page).to have_content(1)
+  end
 end

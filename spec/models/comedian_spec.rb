@@ -21,6 +21,16 @@ RSpec.describe Comedian do
 
         expect(Comedian.average_age).to eq(26)
       end
+      it 'should give the count of specials per comedian' do
+        bob = Comedian.create(name: 'Bob', age: 27)
+        mary = Comedian.create(name: 'Mary', age: 25)
+        bob.specials.create(name: 'Special1')
+        bob.specials.create(name: 'Special2')
+        mary.specials.create(name: 'Special3')
+
+        expect(bob.specials_count).to eq(2)
+        expect(mary.specials_count).to eq(1)
+      end
     end
   end
 end
