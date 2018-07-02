@@ -1,13 +1,12 @@
 <h1 id="greeting">Welcome to Comedians!</h1>
-<h2>Average age = <%= @comedians.average_age %></h2>
+<h2>Average age = <%= @average_age %></h2>
 
 <% @comedians.each do |comedian| %>
   <p><%= comedian.name %></p>
   <p><%= comedian.age %></p>
-  <% @specials.each do |special| %>
-    <% if special.comedian_id == comedian.id %>
-      <p><%= special.name %></p>
-    <% end %>
+  <% comedian.specials.each do |special| %>
+    <%= special.name %>
+    <br>
   <% end %>
-  </br>
+  <br>
 <% end %>

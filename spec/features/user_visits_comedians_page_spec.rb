@@ -21,6 +21,8 @@ RSpec.describe 'a visitor visits comedians page' do
   it 'they see the average age for all comedians' do
     Comedian.create(name: 'Bob', age: 27)
     Comedian.create(name: 'Mary', age: 25)
+    Comedian.create(name: 'Fred', age: 28)
+    Comedian.create(name: 'Alice', age: 24)
 
     visit '/comedians'
 
